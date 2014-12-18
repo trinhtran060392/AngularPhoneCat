@@ -2,17 +2,12 @@
 
 /* Controllers */
 var phonecatApp = angular.module('phonecatApp',[]);
-phonecatApp.controller('PhoneListCtrl', function($scope){
-	$scope.phones = [
-		{
-			'name' : 'Nenus S',
-			'snippnet' : 'Fast just'
-		},{
-			'name' : 'Motorola',
-			'snippnet' : 'Fast just'
-		},{
-			'name' : 'Xoom',
-			'snippnet' : 'Fast just'
-		}
-	];
-});
+phonecatApp.controller('PhoneListCtrl',['$scope', '$http', function($scope,$http){
+
+	$http.get('phones/phones.json').success(function(data){
+
+		$scope.phones = data;
+	});
+	$scope.orderProp = 'age';
+}]);
+	

@@ -6,7 +6,7 @@ describe('PhoneCat App', function() {
 	describe('Phone list view', function(){
 
 	  beforeEach(function() {
-	    browser.get('app/index.html');
+	    browser.get('app/index.html#phones');
 	  });
 	  it('should filter the phone list as user types into the search box', function(){
 	  	var phoneList = element.all(by.repeater('phone in phones'));
@@ -49,5 +49,15 @@ describe('PhoneCat App', function() {
 
 	  	});
 	  });
+
 	});
+ 	describe('Phone Detail view', function(){
+
+	  	beforeEach(function(){
+	  		browser.get('app/index.html#/phones/nexus-s');
+	  	});
+	  	it('should display placeholder page with phondID', function(){
+	  		expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
+	  	});
+	  });
 });

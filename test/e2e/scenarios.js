@@ -56,8 +56,9 @@ describe('PhoneCat App', function() {
 	  	beforeEach(function(){
 	  		browser.get('app/index.html#/phones/nexus-s');
 	  	});
-	  	it('should display placeholder page with phondID', function(){
-	  		expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
+	  	it('should display nexus-s page', function(){
+	  		expect(element(by.binding('phone.name')).getText()).toBe('nexus-s');
 	  	});
-	  });
+	});
+
 });

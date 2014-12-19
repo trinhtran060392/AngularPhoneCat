@@ -10,8 +10,11 @@ phonecatControllers.controller('PhoneListCtrl',['$scope', '$http', function($sco
 	});
 	$scope.orderProp = 'age';
 }]);
-phonecatControllers.controller('PhoneDetailCtrl',['$scope','$routeParams',
+phonecatControllers.controller('PhoneDetailCtrl',['$scope','$routeParams','$http',
 
-	function($scope,$routeParams){
-		$scope.phoneId = $routeParams.phoneId;
+	function($scope,$routeParams,$http){
+		$http.get('phones/'+$routeParams.phoneId+'.json').success(function(data){
+
+			$scope.phone = data;
+		});
 	}]);

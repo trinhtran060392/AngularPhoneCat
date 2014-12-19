@@ -57,7 +57,7 @@ describe('PhoneCat App', function() {
 	  		browser.get('app/index.html#/phones/nexus-s');
 	  	});
 	  	it('should display nexus-s page', function(){
-	  		expect(element(by.binding('phone.name')).getText()).toBe('nexus-s');
+	  		expect(element(by.binding('phone.name')).getText()).toBe('Nexus S');
 	  	});
 	});
 
